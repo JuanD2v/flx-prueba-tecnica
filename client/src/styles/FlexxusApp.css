@@ -1,0 +1,11 @@
+.table-usuarios {
+  box-shadow: 1px 0 5px  #88888893;
+}
+
+.button-table {
+  background: "none"; 
+  border: "none"; 
+  color: "#1890ff"; 
+  cursor: "pointer"; 
+  padding: 0 
+}

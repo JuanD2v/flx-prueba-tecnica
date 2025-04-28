@@ -15,7 +15,7 @@
       "name": "Jane",
       "lastname": "Smith",
       "email": "jane.smith@example.com",
-      "status": "inactive",
+      "status": "active",
       "age": 25
     },
     {
@@ -449,6 +449,15 @@
       "email": "grace.allen@example.com",
       "status": "active",
       "age": 32
+    },
+    {
+      "username": "user420",
+      "email": "juan465aguero@gmail.com",
+      "name": "Juan",
+      "lastname": "Agüero",
+      "status": "inactive",
+      "age": "24",
+      "id": 51
     }
   ]
 }

@@ -1,0 +1,16 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  background-color: #D9D9D9;
+  padding: 40px;
+}
+
+.page-header .icon {
+  width: 130px;
+  padding-left: 15px;
+}
+
+.page-content {
+  margin: 20px 80px;
+  height: 100%;
+}

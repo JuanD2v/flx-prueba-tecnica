@@ -4,7 +4,7 @@
 */
 
 function reverseString(str) {
-  // Tu solución acá  
+  return str.split("").reverse().join("");
 }
 
 /*
@@ -13,7 +13,8 @@ function reverseString(str) {
   y devuelva true si la cadena es un palíndromo, y false en caso contrario.
 */
 function isPalindrome(str) {
-  // Tu solución acá
+  const stringReverse = str.split("").reverse().join(""); // guardo la cadena inversa
+  return str === stringReverse;
 }
 
 /*
@@ -30,9 +31,25 @@ function isPalindrome(str) {
 */
 
 function closestPair(arr) {
-  // Tu solución acá
+  let pair = [];
+  let minDif;
+  for (const index in arr) {
+    for (const index2 in arr) {
+      if (index2 == index) continue; // valido si no es el mismo valor
+      let result = Math.abs(arr[index] - arr[index2]); // valor absoluto de la diferencia entre los valores que se comparan
+      if (!minDif) {
+        minDif = result;
+        pair = [arr[index], arr[index2]];
+        continue;
+      } // guardo el primer par y su diferencia en caso de no se haya asignado aun
+      if (result < minDif) {
+        minDif = result;
+        pair = [arr[index], arr[index2]];
+      } // si encuentro un par con menor diferencia, reemplazar los valores
+    }
+  }
+  return pair.sort((a, b) => a - b); // ordeno de menor a mayor para pasar el test
 }
-
 
 /*
   Ejercicio 4: Calculadora - Programación Orientada a Objetos
@@ -67,7 +84,46 @@ function closestPair(arr) {
 */
 
 class Calculator {
-  // Tu solución acá
+  constructor() {
+    this.lastResult = null;
+  }
+
+  add(a, b) {
+    this.lastResult = a + b;
+    return this.lastResult;
+  }
+
+  subtract(a, b) {
+    this.lastResult = a - b;
+    return this.lastResult;
+  }
+
+  multiply(a, b) {
+    this.lastResult = a * b;
+    return this.lastResult;
+  }
+
+  divide(a, b) {
+    if (b === 0) {
+      this.lastResult = 0;
+      throw Error("Division by zero is not allowed");
+    } // valido si el divisor no es igual a 0
+    this.lastResult = a / b;
+    return this.lastResult;
+  }
+
+  exponentiate(base, exponential) {
+    if (exponential < 0) {
+      this.lastResult = 0;
+      throw Error("Exponentiation with negative exponent is not allowed");
+    } // valido si el exponente no es un valor negativo
+    this.lastResult = base ** exponential;
+    return this.lastResult;
+  }
+
+  getLastResult() {
+    return this.lastResult;
+  }
 }
 
 module.exports = {
@@ -75,4 +131,4 @@ module.exports = {
   isPalindrome,
   reverseString,
   Calculator,
-}
+};
